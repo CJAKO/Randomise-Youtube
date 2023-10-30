@@ -1,7 +1,7 @@
 const imagesPath = "images/";
 var useAlternativeImages
 var flipBlacklist
-
+index = 0
 // Apply the overlay
 function applyOverlay(thumbnailElement, overlayImageURL, flip = false) {
   if (thumbnailElement.nodeName == "IMG") {
@@ -26,6 +26,13 @@ function applyOverlay(thumbnailElement, overlayImageURL, flip = false) {
 
 // Looks for all thumbnails and applies overlay
 function applyOverlayToThumbnails() {
+  var thumbnail = document.getElementsByClassName("yt-core-image--fill-parent-height yt-core-image--fill-parent-width yt-core-image yt-core-image--content-mode-scale-aspect-fill yt-core-image--loaded");
+  thumbnail[index].src = "https://img.freepik.com/premium-photo/question-mark-concept_150455-5720.jpg?w=2000"
+  index += 1
+  var details = document.getElementById("details");
+  details.remove();
+  var preview = document.getElementById("video-preview-container");
+  preview.remove();
   // Query all YouTube video thumbnails on the page that haven't been processed yet
   // (ignores shorts thumbnails)
   const elementQueryThumbnail =
